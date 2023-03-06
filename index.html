@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width">
+   <title>Home Affordability</title>
+   <script src="https://mintrates.com/wp-content/themes/mintrates/bower_components/modernizr/modernizr.js"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+   <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-core.min.js"></script>
+   <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-pie.min.js"></script>
+   <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+   <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+   <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+   <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+   <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+
+
+   <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+      integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="style.css" />
+   <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+   <header>
+   </header>
+   <!--  END HEADER  -->
+   <div id="main" class="site-main">
+      <main>
+         <div class="main-header">
+            <div class="head-div">
+               <h1 class="head-1">Calculate your <span>Total Home <br>Affordability</span> using ARCH Foundations</h1>
+               <p class="head-2">Easily calculate your total home affordability, including the impact <br>of your buying
+                  power,and your estimated monthly savings when <br>using the ARCH Foundations down payment program.</p>
+            </div>
+         </div>
+
+         <div class="row1 row">
+            <div class="white-box">
+               <section>
+                  <div class="small-12 medium-5 columns">
+                     <div class="row row-section">
+                        <div class="small-12 columns">
+                           <label for="home-price" class="inline">Gross Annual Income:</label>
+                        </div>
+                        <div class="row">
+                           <div class="large-12 columns">
+                              <div id="wrapper">
+                                 <input type="range" min="0" max="400000" value="100000" step="1" class='range'
+                                    id="range1">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="small-12 columns input-wrap">
+                           <input type="text" id="home-price" value="$100,000" onkeypress='return neww(event)'>
+                           <div class="arrows">
+                              <button class="up-arrow" id="arrow-up1">▲</button>
+                           <button class="down-arrow" id="arrow-down1">▼</button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row row-section">
+                        <div class="small-12 columns">
+                           <label for="down-payment" class="inline">Down Payment:</label>
+                        </div>
+                        <div class="row">
+                           <div class="large-12 columns">
+                              <div id="wrapper">
+                                 <input type="range" min="5000" max="200000" value="35000" step="100" class='range'
+                                    id="range2">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="small-12 columns input-wrap">
+                           <input type="text" id="down-price" value="$35,000" onkeypress='return neww(event)'>
+                           
+                           <div class="arrows">
+                              <button class="up-arrow" id="arrow-up2">▲</button>
+                           <button class="down-arrow" id="arrow-down2">▼</button>
+                           </div>
+                          </div>
+                        <span class="ratio r1" id="r1">5.86%</span>
+                     </div>
+                     <div class="row row-section">
+                        <div class="small-12 columns">
+                           <label for="mortage-payment" class="inline">ARCH's Contribution:</label>
+                        </div>
+                        <div class="row">
+                           <div class="large-12 columns">
+                              <div id="wrapper">
+                                 <input type="range" min="0" max="150000" value="119420" step="10" class='range'
+                                    id="range3">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="small-12 columns input-wrap">
+                           <input type="text" id="arch-price" value="$119,420" onkeypress='return neww(event)'>
+                           <div class="arrows">
+                              <button class="up-arrow" id="arrow-up3">▲</button>
+                           <button class="down-arrow" id="arrow-down3">▼</button>
+                           </div>
+                        </div>
+                        <span class="ratio r2" id="r2">20.00%</span>
+                     </div>
+                     <div class="row row-section">
+                        <div class="small-5 columns input-wrap">
+                           <label class="inline">Interest Rate
+                              <input id="mortage-interest" type="text" placeholder="" value="3.00%"
+                                 onkeypress='return neww(event)' />
+                                 <div class="arrows ar1">
+                                    <button class="up-arrow" id="arrow-up4">▲</button>
+                                 <button class="down-arrow" id="arrow-down4">▼</button>
+                                 </div>
+                              </label>
+                        </div>
+                        <div class="small-2 columns">
+                           &nbsp
+                        </div>
+                        <div class="small-5 columns">
+                           <label class="inline ">
+                              Amortization
+                              <select class="decorated" id="selectamort" name="amortization">
+                                 <option value="5">5</option>
+                                 <option value="10">10</option>
+                                 <option value="15">15</option>
+                                 <option value="20">20</option>
+                                 <option value="25" selected>25</option>
+                                 <option value="30">30</option>
+                              </select>
+                             
+                           </label>
+                           <div class="arrows">
+                                 
+                              <span class="arroww" id="arrow-amort">▼</span>
+                              </div>
+                        </div>
+                  
+                     </div>
+                     <div class="row row-section">
+                        <div class="small-12 columns">
+                           <label for="monthly-debt" class="inline">Monthly Loan Payments:</label>
+                        </div>
+                        <div class="small-12 columns input-wrap">
+                           <input type="text" id="monthly-payments" onkeypress='return neww(event)' value="$0">
+                           <div class="arrows">
+                              <button class="up-arrow" id="arrow-up5">▲</button>
+                           <button class="down-arrow" id="arrow-down5">▼</button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row row-section">
+                        <div class="small-12 columns">
+                           <label for="mortage-debt" class="inline">Credit Card Debt:</label>
+                        </div>
+                        <div class="small-12 columns input-wrap">
+                           <input type="text" id="mortage-debt" onkeypress='return neww(event)' value="$0">
+                           <div class="arrows">
+                              <button class="up-arrow" id="arrow-up6">▲</button>
+                           <button class="down-arrow" id="arrow-down6">▼</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="medium-1 hide-for-small columns ">
+                     <div style="background:#ccc;width:1px;min-height:1000px;margin-top:0px;margin-left: 40px;"
+                        class="line">
+                        &nbsp;
+                     </div>
+                  </div>
+
+                  <div class="medium-5 small-12 columns left-calc second-section tabcontent show"
+                     id="payment-breakdown">
+
+
+                     <h2 class="payment-heading breakdown">Payment Breakdown</h2>
+                     <div class="chart-container">
+                        <div class="doughnut-container">
+                           <div id="doughnut-chart">
+                              <!-- <canvas id="doughnutChart" width="210" height="210" /> -->
+                              <div id="container"></div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="large-12">
+                              <ul class="doughnutChart-legend">
+                                 <li class="legend1">
+                                    <span class="cost-1 principal-interest" style="font-size: 35px;"
+                                       id="you-legend">$35,000</span><span class="text-1"
+                                       style="font-size: 24px;">You</span>
+                                 </li>
+                                 <li class="legend2">
+                                    <span class="cost-2 property-tax" style="font-size: 35px;"
+                                       id="arch-legend">$119,420</span><span class="text-2"
+                                       style="font-size: 24px;">ARCH</span>
+                                 </li>
+                                 <li class="legend3">
+                                    <span class="cost-3 home-insurance" style="font-size: 35px;"
+                                       id="mortgage-legend">$442,678</span><span class="text-3"
+                                       style="font-size: 24px;">Mortgage</span>
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="container">
+
+                              <div class="box1">
+                                 <label class="inline payment-heading">Max. Purchase Price</label>
+                                 <p id="max-purchase-price">$597,098 </p>
+                              </div>
+                              <div class="separator"></div>
+                              <div class="box2">
+                                 <label class="inline payment-heading">Monthly Payment</label>
+                                 <p id="monthly-payment">$2,095</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- //third section -->
+                  <div class="medium-5 small-12 columns left-calc second-section tabcontent" id="payment-comparison">
+                     <h2 class="payment-heading comparison">Payment Comparison</h2>
+
+                     <div class="parent">
+                        <div class="outer-column">
+                           <span class="inner-inline first-column"><span class="figure f1"
+                                 id="comparison-1">25.0%</span><br>
+                              increase in buying power</span>
+                           <div class="inner-inline headline" id="container-1">Maximum Purchase Price
+                              <div id="chart-1"></div>
+                           </div>
+
+                        </div>
+                        <div class="outer-column">
+                           <span class="inner-inline first-column"><span class="figure f2"
+                                 id="comparison-2">$672</span><br>
+                              in monthly savings</span>
+                           <div class="inner-inline headline" id="container-2">&nbsp&nbsp&nbsp&nbspMonthly Payment
+                              <div id="chart-2"></div>
+                           </div>
+
+                        </div>
+                     </div>
+
+
+                  </div>
+                  <div class="tabs-head columns">
+                     <a class="Mortgage-header-payment tablinks active" onclick="openTab(event, 'payment-breakdown')">←
+                        Payment Breakdown</a>
+                     <span class="sep"></span>
+                     <a class="Mortgage-header-payment tablinks" onclick="openTab(event, 'payment-comparison')">Payment
+                        Comparison →</a>
+
+                  </div>
+               </section>
+            </div>
+      </main>
+      <footer>
+   </div>
+   <script src="https://mintrates.com/wp-content/themes/mintrates/js/vendor/jquery.js"></script>
+   <script src="https://mintrates.com/wp-content/themes/mintrates/bower_components/jquery/dist/jquery.min.js"></script>
+   <script
+      src="https://mintrates.com/wp-content/themes/mintrates/bower_components/foundation/js/foundation.min.js"></script>
+   <script src="https://mintrates.com/wp-content/themes/mintrates/js/app.js"></script>
+   <script src="https://mintrates.com/wp-content/themes/mintrates/js/numeral.min.js"></script>
+   <script src="https://mintrates.com/wp-content/themes/mintrates/js/chart.js"></script>
+   <!-- <script src="https://mintrates.com/wp-content/themes/mintrates/js/main.js"></script> -->
+   <script id="dsq-count-scr" src="//mintrates.disqus.com/count.js" async></script>
+   </div>
+   </div>
+   <!--  END FOOTER  -->
+   <script src="asset.js"></script>
+</body>
+
+</html>
